@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync, spawnSync } = require('child_process');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // Function to install a module if it's not already installed
 const ensureModuleInstalled = (moduleName) => {
@@ -69,9 +68,6 @@ const angularVersion = prompt('Select the Angular version (e.g., 16): ');
 const projectDir = 'wc_financialadvisordetails_new_test';
 const packageJsonPath = path.join(projectDir, 'package.json');
 
-// Path to the webpack.config.js file to copy
-const webpackConfigSourcePath = path.resolve(__dirname, '../webpack.config.js');
-// Path to the new src folder to copy
 // Prompt user for the root directory containing the src folder
 const rootDirectory = prompt('Enter the root directory containing the src folder: ');
 const newSrcFolderPath = path.resolve(rootDirectory, 'src');
@@ -113,15 +109,10 @@ try {
     throw ngAdd.error;
   }
 
- 
-  // Step 4: Install etp/services dependencies
-  exec('npm install @etp/services@5.0.13-lite --force');
+  // Step 4: Install additional dependencies
+  exec('npm install --save-dev uglifyjs-webpack-plugin babel-loader @babel/core @babel/preset-env style-loader css-loader sass-loader --force');
 
-
-  // Step 5: Install additional dependencies
-  exec('npm install --save-dev uglifyjs-webpack-plugin --force');
-
-  // Step 6: Update package.json with new scripts
+  // Step 5: Update package.json with new scripts
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
   if (!packageJson.scripts) {
     packageJson.scripts = {};
@@ -131,54 +122,49 @@ try {
     ...packageJson.scripts,
     "start": "npm run build:buic && http-server ./dist/test-harness",
     "build:buic": "echo 'Building Buic Start' && node node_modules/webpack/bin/webpack.js && echo 'Building Buic Complete'",
-    "build": "npm run build:buic && ng build && xcopy \"dist/buic\" \"dist/test-harness/buic\" /s /e /y",
-    "lint": "ng lint",
-    "prettify": "node node_modules/prettier/bin-prettier.js --config .prettierrc --write \"buic-src/**/*.{ts,html,css}\"",
-    "build:buic:watch": "echo 'Building Buic Start' && node node_modules/webpack/bin/webpack.js && xcopy \"dist/buic\" \"dist/test-harness/buic\" /s /e /y && echo 'Building Buic Complete'",
-    "build:testharness": "ng build --prod && xcopy \"dist/buic\" \"dist/test-harness/buic\" /s /e /y && node csp.js",
-    "watch:buic": "npm-watch build:buic:watch",
-    "watch:testharness": "npm-watch build:testharness"
+    // Add other scripts as needed
   };
-  
-    fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
-  // Step 7: Read and modify the custom webpack.config.js file
+  fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+
+  // Step 6: Read and modify the custom webpack.config.js file
+  const webpackConfigSourcePath = path.resolve(__dirname, '../webpack.config.js');
   if (!fs.existsSync(webpackConfigSourcePath)) {
     throw new Error(`webpack.config.js not found at ${webpackConfigSourcePath}`);
   }
   let webpackConfig = fs.readFileSync(webpackConfigSourcePath, 'utf8');
-  if (!webpackConfig.entry) {
-    webpackConfig.entry = {};
-    webpackConfig.output = {};
-    webpackConfig.optimization = {};
+  const entryField = prompt('Enter the entry field for webpack (e.g., ./src/main.ts): ');
+
+  // Add UglifyJsPlugin import statement at the top
+  const uglifyJsImportStatement = "const UglifyJsPlugin = require('uglifyjs-webpack-plugin');\n";
+  if (!webpackConfig.includes(uglifyJsImportStatement)) {
+    webpackConfig = uglifyJsImportStatement + webpackConfig;
   }
-  webpackConfig.entry = {
-  "cct_synergyweb_financialadvisordetails_ng16_buic": "./test-harness/main.ts",
-  "cct_synergyweb_financialadvisordetails_ng16_buic.min": "./test-harness/main.ts",
+
+  // Update the entry field dynamically
+  webpackConfig = webpackConfig.replace(/entry:\s*['"].+['"],/, `entry: '${entryField}',`);
+
+  // Add optimization field if not present
+  if (!webpackConfig.includes('optimization: {')) {
+    const optimizationConfig = `
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new UglifyJsPlugin({
+          include: /\\.min\\.js$/,
+        }),
+      ],
+    },`;
+
+    const insertPosition = webpackConfig.lastIndexOf('};');
+    webpackConfig = [webpackConfig.slice(0, insertPosition), optimizationConfig, webpackConfig.slice(insertPosition)].join('');
   }
-  webpackConfig.output = {
-   path:path.resolve(__dirname,'dist/'),
-   filename: "[name].js",
-  }
-  webpackConfig.optimization = {
-    minimize: true,
-    minimizer: [new UglifyJsPlugin({
-      include: /\.min\.js$/
-    })]
-   }
 
-  fs.writeFileSync(webpackConfigSourcePath, JSON.stringify(webpackConfig, null, 2));
+  // Ensure the destination directory exists and write the modified webpack.config.js file
+  const webpackConfigDestPath = path.resolve(process.cwd(), 'webpack.config.js');
+  fs.writeFileSync(webpackConfigDestPath, webpackConfig);
 
-  // const entryField = prompt('cct_synergyweb_financialadvisordetails_ng16_buic: "./test-harness/main.ts"  ');
-
-  // // Update the entry field dynamically
-  // webpackConfig = webpackConfig.replace(/entry:\s*['"].+['"],/, `entry: '${entryField}',`);
-
-  // // Ensure the destination directory exists and write the modified webpack.config.js file
-  // const webpackConfigDestPath = path.resolve(process.cwd(), 'webpack.config.js');
-  // fs.writeFileSync(webpackConfigDestPath, webpackConfig);
-
-  // Step 8: Remove the existing src folder and copy the new src folder
+  // Step 7: Remove the existing src folder and copy the new src folder from the specified root directory
   const srcFolderPath = path.resolve(process.cwd(), 'src');
   if (fs.existsSync(srcFolderPath)) {
     fs.rmSync(srcFolderPath, { recursive: true, force: true });
@@ -192,25 +178,17 @@ try {
     throw new Error(`New src folder not found at ${newSrcFolderPath}`);
   }
 
-   // Step 9: Install  dependencies
-  exec('npm install  --force');
+  // Step 8: Remove specific import statement from main.ts
+  const mainTsPath = path.resolve(srcFolderPath, 'main.ts');
+  if (fs.existsSync(mainTsPath)) {
+    let mainTsContent = fs.readFileSync(mainTsPath, 'utf8');
+    mainTsContent = mainTsContent.replace(/import\s+\{\s*AppModule\s*\}\s+from\s+['"]\.\/app\/app\.module['"];\s*/g, "import './lookupConfig';");
+    fs.writeFileSync(mainTsPath, mainTsContent);
+    console.log(`Replaced import statement in ${mainTsPath}`);
+  } else {
+    console.log(`main.ts not found at ${mainTsPath}. Skipping import statement removal.`);
+  }
 
-    // Step 10: Remove specific import statement from main.ts
-    const testHarnessFolderPath = path.resolve(process.cwd(), 'src');
-    if (fs.existsSync(testHarnessFolderPath)) {
-      fs.rmSync(testHarnessFolderPath, { recursive: true, force: true });
-      console.log(`Removed existing src folder at ${testHarnessFolderPath}`);
-    }
-    const mainTsPath = path.resolve(testHarnessFolderPath, 'main.ts');
-    if (fs.existsSync(mainTsPath)) {
-      let mainTsContent = fs.readFileSync(mainTsPath, 'utf8');
-      mainTsContent = mainTsContent.replace(/import\s+['"]\.\/lookupConfig['"];\s*/g, '');
-      fs.writeFileSync(mainTsPath, mainTsContent);
-      console.log(`Removed specific import statement from ${mainTsPath}`);
-    } else {
-      console.log(`main.ts not found at ${mainTsPath}. Skipping import statement removal.`);
-    }
-  
   console.log('Angular project setup is complete!');
 } catch (error) {
   console.error('An unexpected error occurred:', error.message);
