@@ -72,7 +72,9 @@ const packageJsonPath = path.join(projectDir, 'package.json');
 // Path to the webpack.config.js file to copy
 const webpackConfigSourcePath = path.resolve(__dirname, '../webpack.config.js');
 // Path to the new src folder to copy
-const newSrcFolderPath = path.resolve(__dirname, 'new_src_folder_path'); // Update this path to the actual new src folder path
+// Prompt user for the root directory containing the src folder
+const rootDirectory = prompt('Enter the root directory containing the src folder: ');
+const newSrcFolderPath = path.resolve(rootDirectory, 'src');
 
 try {
   // Step 1: Check and install Angular CLI with the specified version
