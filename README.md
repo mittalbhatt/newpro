@@ -1,3 +1,6 @@
+const fs = require('fs'), path = require('path');
+const copyDir = (src, dest) => fs.readdirSync(src).forEach(item => fs.lstatSync(path.join(src, item)).isDirectory() ? copyDir(path.join(src, item), path.join(dest, item)) : fs.copyFileSync(path.join(src, item), fs.mkdirSync(dest, { recursive: true }) || path.join(dest, item))));
+copyDir(path.join(__dirname, 'files', 'element-config'), path.join(__dirname, 'wc_financialadvisordetail'));
 const fs = require('fs');
 const path = require('path');
 const { execSync, spawnSync } = require('child_process');
