@@ -1,4 +1,40 @@
 const fs = require('fs'), path = require('path');
+const fs = require('fs');
+const path = require('path');
+
+function copyDirectory(source, destination) {
+    if (!fs.existsSync(source)) {
+        console.error(`Source directory "${source}" does not exist.`);
+        return;
+    }
+
+    if (!fs.existsSync(destination)) {
+        fs.mkdirSync(destination, { recursive: true });
+        console.log(`Created destination directory: ${destination}`);
+    }
+
+    fs.readdirSync(source).forEach(item => {
+        const sourcePath = path.join(source, item);
+        const destinationPath = path.join(destination, item);
+
+        if (fs.lstatSync(sourcePath).isDirectory()) {
+            copyDirectory(sourcePath, destinationPath);
+        } else {
+            fs.copyFileSync(sourcePath, destinationPath);
+            console.log(`Copied file: ${sourcePath} -> ${destinationPath}`);
+        }
+    });
+
+    console.log(`Successfully copied "${source}" to "${destination}".`);
+}
+
+// Define source and destination directories
+const sourceDir = path.join(__dirname, 'files', 'element-config');
+const destinationDir = path.join(__dirname, 'wc_financialadvisordetail');
+
+// Execute the copy operation
+copyDirectory(sourceDir, destinationDir);
+
 const copyDir = (src, dest) => fs.readdirSync(src).forEach(item => fs.lstatSync(path.join(src, item)).isDirectory() ? copyDir(path.join(src, item), path.join(dest, item)) : fs.copyFileSync(path.join(src, item), fs.mkdirSync(dest, { recursive: true }) || path.join(dest, item))));
 copyDir(path.join(__dirname, 'files', 'element-config'), path.join(__dirname, 'wc_financialadvisordetail'));
 const fs = require('fs');
