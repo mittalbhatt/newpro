@@ -1,42 +1,56 @@
-import { Component, ViewChild } from '@angular/core';
+const express = require('express');
+const formidable = require('formidable');
+const fs = require('fs');
+const path = require('path');
+const app = express();
+const PORT = 3000;
 
-@Component({
-  selector: 'app-upload',
-  templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.css']
-})
-export class UploadComponent {
-  @ViewChild('fileInput') fileInput: any; // Reference to the file input
-  selectedFile: File | null = null;
-
-  // Trigger file input click programmatically
-  triggerFileInput() {
-    this.fileInput.nativeElement.click();
-  }
-
-  // Handle file selection
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
-      console.log('Selected file:', this.selectedFile.name);
-    }
-  }
-
-  // Upload the selected file
-  uploadFile() {
-    if (!this.selectedFile) {
-      alert('No file selected!');
-      return;
-    }
-
-    // Prepare FormData to send the selected file
-    const formData = new FormData();
-    formData.append('file', this.selectedFile, this.selectedFile.name);
-
-    // Here, you'd make the HTTP request to upload the file
-    // this.http.post('upload_url', formData).subscribe(response => {
-    //   console.log('File uploaded successfully!', response);
-    // });
-  }
+// Make sure the uploads folder exists
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir);
 }
+
+// Route to handle file upload
+app.post('/upload', (req, res) => {
+  const form = new formidable.IncomingForm();
+
+  // Set the upload directory and keep file names intact
+  form.uploadDir = uploadsDir;
+  form.keepExtensions = true;
+
+  // Parse the incoming form-data
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      console.error('Error parsing the form: ', err);
+      return res.status(500).send('Error parsing the form.');
+    }
+
+    // files will contain the uploaded file
+    const uploadedFile = files.file[0]; // Assuming only one file is uploaded
+    console.log('Uploaded file:', uploadedFile);
+
+    res.status(200).send({
+      message: 'File uploaded successfully!',
+      file: uploadedFile
+    });
+  });
+});
+
+// Serve static files (optional, to serve uploaded files)
+app.use('/uploads', express.static(uploadsDir));
+
+// Route to serve a list of available files
+app.get('/files', (req, res) => {
+  fs.readdir(uploadsDir, (err, files) => {
+    if (err) {
+      return res.status(500).send('Unable to read uploads directory.');
+    }
+    res.json(files); // List all uploaded files
+  });
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
