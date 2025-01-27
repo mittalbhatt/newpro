@@ -1,24 +1,4 @@
-ChatGPT
-
-You said:
-I save html file in template folder in angualr root directory now I want upload that file on click upload button
-ChatGPT said:
-ChatGPT
-To upload an HTML file saved in the template folder of the Angular project to a server when a button is clicked, you can follow these steps:
-
-1. Move the File to the Assets Folder
-Angular projects usually serve static files from the assets folder. Move the template folder inside src/assets to make the file accessible.
-
-src/assets/template/example.html
-2. Create an Upload Component
-Generate a new Angular component for the upload functionality:
-
-ng generate component upload
-3. Load and Upload the File
-Modify the upload.component.ts file:
-
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-upload',
@@ -26,31 +6,37 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent {
-  constructor(private http: HttpClient) {}
+  @ViewChild('fileInput') fileInput: any; // Reference to the file input
+  selectedFile: File | null = null;
 
+  // Trigger file input click programmatically
+  triggerFileInput() {
+    this.fileInput.nativeElement.click();
+  }
+
+  // Handle file selection
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+      console.log('Selected file:', this.selectedFile.name);
+    }
+  }
+
+  // Upload the selected file
   uploadFile() {
-    // Path to your file in the assets folder
-    const filePath = 'assets/template/example.html';
+    if (!this.selectedFile) {
+      alert('No file selected!');
+      return;
+    }
 
-    // Fetch the file content
-    fetch(filePath)
-      .then((response) => response.text())
-      .then((fileContent) => {
-        // Create a Blob object from the file content
-        const blob = new Blob([fileContent], { type: 'text/html' });
+    // Prepare FormData to send the selected file
+    const formData = new FormData();
+    formData.append('file', this.selectedFile, this.selectedFile.name);
 
-        // Create a FormData object for upload
-        const formData = new FormData();
-        formData.append('file', blob, 'example.html');
-
-        // Make the HTTP POST request to upload the file
-        this.http.post('https://your-upload-api-endpoint', formData).subscribe({
-          next: (res) => console.log('Upload successful', res),
-          error: (err) => console.error('Upload failed', err),
-        });
-      })
-      .catch((error) => {
-        console.error('Error reading the file', error);
-      });
+    // Here, you'd make the HTTP request to upload the file
+    // this.http.post('upload_url', formData).subscribe(response => {
+    //   console.log('File uploaded successfully!', response);
+    // });
   }
 }
