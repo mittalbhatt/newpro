@@ -11,6 +11,9 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir);
 }
 
+// Function to check the file type (mime type)
+const allowedFileTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+
 // Route to handle file upload
 app.post('/upload', (req, res) => {
   const form = new formidable.IncomingForm();
@@ -18,6 +21,13 @@ app.post('/upload', (req, res) => {
   // Set the upload directory and keep file names intact
   form.uploadDir = uploadsDir;
   form.keepExtensions = true;
+
+  // File validation
+  form.on('fileBegin', (name, file) => {
+    if (!allowedFileTypes.includes(file.type)) {
+      return res.status(400).send('Invalid file type. Only JPEG, PNG, and PDF files are allowed.');
+    }
+  });
 
   // Parse the incoming form-data
   form.parse(req, (err, fields, files) => {
