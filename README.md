@@ -1,5 +1,5 @@
-<fieldset role="radiogroup" aria-labelledby="address-type-label">
-  <legend id="address-type-label">Address Type</legend>
+<div role="radiogroup" aria-labelledby="sr-address-type">
+  <div id="sr-address-type" class="sr-only">Address Type</div>
 
   <label>
     <input type="radio" name="addressType" value="STENCIL" />
@@ -9,4 +9,4 @@
     <input type="radio" name="addressType" value="DIGITAL" />
     Digital
   </label>
-</fieldset>
+</div>
