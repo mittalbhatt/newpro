@@ -1,19 +1,9 @@
-How It Works: A Simple Example
+How to Read This Diagram (Simple Steps):
 
-Normal Situation:
-
-· Raj is a developer. His laptop automatically has coding software (like Docker) and no sales software.
-
-The Exception:
-
-· Raj needs to help the sales team for a week and requires the Sales CRM software.
-
-Without an Override Engine: An IT person would have to manually install the software on Raj's laptop.Then, next week, they'd have to remember to manually uninstall it.
-
-With the Override Engine:
-
-1. Raj or his manager clicks a button that says: "Give Raj the Sales software for 7 days."
-2. The Override Engine creates a temporary "permission slip" for this exception.
-3. The main Epigenetic Engine sees this slip and instantly installs the Sales software on Raj's laptop.
-4. Crucially, after 7 days, the Override Engine automatically deletes the permission slip.
-5. The main Epigenetic Engine notices the slip is gone and immediately uninstalls the Sales software, putting Raj's laptop back to its normal developer setup. No one has to remember to do anything.
+1. Request is Made: An employee or their manager asks for special software they don't normally have. (e.g., "I need Photoshop for 3 days").
+2. Override Engine Handles It: The "Exception Boss" (Override Engine) takes the request and does three things:
+   · Creates a Temporary Permission Slip: This is a digital rule that says "Okay, but only for 3 days."
+   · Sends a Bypass Command: It tells the main "Strict Boss" to ignore the normal rules for this one case.
+   · Logs & Starts a Timer: It notes down who asked, what for, and when the permission expires. The clock starts ticking.
+3. Main Engine Applies Exception: The main "Strict Boss" (Epigenetic Engine) gets the command and immediately installs the software (Photoshop), even though it's normally against the rules.
+4. Automatic Cleanup: When the timer runs out, the Override Engine automatically deletes the permission slip. This forces the Main Engine to revert to the original rules and uninstall the software automatically. No one has to remember to do it manually.
