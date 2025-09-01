@@ -1,38 +1,19 @@
+How It Works: A Simple Example
 
+Normal Situation:
 
-Diagram Explanation:
+· Raj is a developer. His laptop automatically has coding software (like Docker) and no sales software.
 
-1. Digital DNA Template 
+The Exception:
 
-· This represents the "genetic blueprint" of your system
-· Contains all possible software, drivers, and configurations
-· Serves as the master template from which all devices are created
+· Raj needs to help the sales team for a week and requires the Sales CRM software.
 
-2. Epigenetic Control System (Purple Section)
+Without an Override Engine: An IT person would have to manually install the software on Raj's laptop.Then, next week, they'd have to remember to manually uninstall it.
 
-· The "engine" that interprets epigenetic markers
-· Contains role-based profiles (DevOps, Sales, Design, etc.)
-· Translates environmental factors into configuration decisions
+With the Override Engine:
 
-3. Environmental Factors (Orange Section)
-
-· External conditions that influence the configuration:
-  · Network location (office vs. remote)
-  · Hardware capabilities (RAM, storage, etc.)
-  · Time-based policies
-  · Role changes within organization
-
-4. Device Phenotype Expression (Green Section)
-
-· The final configured device state
-· Specific software activated based on role needs
-· Custom settings and policies applied
-· Unique configuration emerges from the same DNA template
-
-How the System Works:
-
-1. The Digital DNA Template provides the complete set of possible configurations
-2. Environmental factors and user roles create "epigenetic markers"
-3. The Epigenetic Engine interprets these markers
-4. The system expresses only the needed software/settings for each device
-5. When factors change (e.g., employee changes departments), the configuration adapts dynamically
+1. Raj or his manager clicks a button that says: "Give Raj the Sales software for 7 days."
+2. The Override Engine creates a temporary "permission slip" for this exception.
+3. The main Epigenetic Engine sees this slip and instantly installs the Sales software on Raj's laptop.
+4. Crucially, after 7 days, the Override Engine automatically deletes the permission slip.
+5. The main Epigenetic Engine notices the slip is gone and immediately uninstalls the Sales software, putting Raj's laptop back to its normal developer setup. No one has to remember to do anything.
