@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Diagram v2" id="diagram2">
+    <mxGraphModel dx="1280" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="ete" value="ETE\nRequest Intake" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#111;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="30" y="140" width="170" height="90" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="signals" value="Signal Collectors\n• Identity\n• Approval\n• Telemetry\n• Context" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#111;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="230" y="40" width="300" height="240" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="slot" value="Slot\nIndexer\n\n☑  Option A\n☑  Option B\n☑  Option C" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#111;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="570" y="50" width="240" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="plan" value="Executing\nPlan\n\n☑  Step 1\n☑  Step 2\n☑  Step 3" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#111;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="920" y="60" width="260" height="200" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="override" value="Override\nModule\n◉" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#111;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="570" y="300" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="marker" value="Marker\nSynthesizer\n✎" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#111;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="240" y="360" width="260" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="drift" value="Drift &amp;\nConflict Manager" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#111;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="570" y="460" width="260" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="executor" value="Executor\n⚙" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#111;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="920" y="320" width="260" height="170" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;strokeColor=#111;" edge="1" source="ete" target="signals" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;strokeColor=#111;" edge="1" source="signals" target="slot" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;strokeColor=#111;" edge="1" source="slot" target="plan" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;strokeColor=#111;" edge="1" source="slot" target="override" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;strokeColor=#111;" edge="1" source="marker" target="override" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;strokeColor=#111;" edge="1" source="override" target="drift" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;strokeColor=#111;" edge="1" source="drift" target="executor" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=block;strokeColor=#111;" edge="1" source="plan" target="executor" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
