@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1280" height="900" viewBox="0 0 1280 900" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .box { fill: #fff; stroke: #111; stroke-width:2; rx:14; ry:14; }
+    .smallbox { fill: #fff; stroke: #111; stroke-width:2; rx:10; ry:10; }
+    .text { font-family: Arial, Helvetica, sans-serif; font-size:16px; fill:#111; }
+    .title { font-weight: bold; font-size:18px; }
+    .arrow { stroke:#111; stroke-width:2; fill:none; marker-end: url(#arrowhead); }
+    .icon { fill:none; stroke:#111; stroke-width:2; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="12" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 L4,6 z" fill="#111"/>
+    </marker>
+  </defs>
+
+  <!-- ETE Request Intake -->
+  <rect x="30" y="140" width="170" height="90" class="smallbox"/>
+  <text x="115" y="175" text-anchor="middle" class="text title">ETE</text>
+  <text x="115" y="195" text-anchor="middle" class="text">Request Intake</text>
+
+  <!-- Signal Collectors -->
+  <rect x="230" y="40" width="300" height="240" class="box"/>
+  <text x="380" y="70" text-anchor="middle" class="text title">Signal</text>
+  <text x="380" y="95" text-anchor="middle" class="text title">Collectors</text>
+  <text x="260" y="130" class="text">• Identity</text>
+  <text x="260" y="155" class="text">• Approval</text>
+  <text x="260" y="180" class="text">• Telemetry</text>
+  <text x="260" y="205" class="text">• Context</text>
+
+  <!-- Slot Indexer -->
+  <rect x="570" y="50" width="240" height="220" class="box"/>
+  <text x="690" y="85" text-anchor="middle" class="text title">Slot</text>
+  <text x="690" y="108" text-anchor="middle" class="text title">Indexer</text>
+
+  <!-- Checklist icon inside Slot Indexer -->
+  <!-- three rows with checkbox and line -->
+  <g transform="translate(610,140)">
+    <!-- row 1 -->
+    <rect x="0" y="0" width="16" height="16" class="icon" fill="#fff"/>
+    <path d="M3 8 L7 12 L13 4" class="icon" fill="none"/>
+    <line x1="26" y1="8" x2="150" y2="8" class="icon"/>
+    <!-- row 2 -->
+    <rect x="0" y="28" width="16" height="16" class="icon" fill="#fff"/>
+    <path d="M3 36 L7 40 L13 32" class="icon" fill="none"/>
+    <line x1="26" y1="36" x2="150" y2="36" class="icon"/>
+    <!-- row 3 -->
+    <rect x="0" y="56" width="16" height="16" class="icon" fill="#fff"/>
+    <path d="M3 64 L7 68 L13 60" class="icon" fill="none"/>
+    <line x1="26" y1="64" x2="150" y2="64" class="icon"/>
+  </g>
+
+  <!-- Executing Plan -->
+  <rect x="920" y="60" width="260" height="200" class="box"/>
+  <text x="1050" y="95" text-anchor="middle" class="text title">Executing</text>
+  <text x="1050" y="118" text-anchor="middle" class="text title">Plan</text>
+  <!-- checklist inside Executing Plan -->
+  <g transform="translate(970,150)">
+    <rect x="0" y="0" width="18" height="18" class="icon" fill="#fff"/><path d="M4 9 L8 13 L15 5" class="icon"/><line x1="28" y1="9" x2="150" y2="9" class="icon"/>
+    <rect x="0" y="32" width="18" height="18" class="icon" fill="#fff"/><path d="M4 41 L8 45 L15 37" class="icon"/><line x1="28" y1="41" x2="150" y2="41" class="icon"/>
+    <rect x="0" y="64" width="18" height="18" class="icon" fill="#fff"/><path d="M4 73 L8 77 L15 69" class="icon"/><line x1="28" y1="73" x2="150" y2="73" class="icon"/>
+  </g>
+
+  <!-- Arrows: ETE -> Signal Collectors -> Slot Indexer -> Executing Plan -->
+  <path d="M200 185 L230 185" class="arrow"/>
+  <text x="230" y="170" class="text"> </text>
+  <path d="M530 160 L570 160" class="arrow"/>
+  <text x="400" y="30" class="text" text-anchor="middle">Signals</text>
+  <path d="M810 160 L920 160" class="arrow"/>
+  <text x="870" y="145" class="text" text-anchor="middle">Slot</text>
+
+  <!-- Slot Indexer down to Override Module (Markers) -->
+  <rect x="570" y="300" width="240" height="140" class="smallbox"/>
+  <text x="690" y="330" text-anchor="middle" class="text title">Override</text>
+  <text x="690" y="352" text-anchor="middle" class="text title">Module</text>
+  <!-- override symbol: rounded square with inner circle -->
+  <g transform="translate(660,370)">
+    <rect x="-20" y="-20" width="40" height="40" rx="6" ry="6" class="icon" fill="#fff"/>
+    <circle cx="0" cy="0" r="9" class="icon" fill="#fff"/>
+  </g>
+  <path d="M690 270 L690 300" class="arrow"/>
+  <text x="710" y="285" class="text">Markers</text>
+
+  <!-- Marker Synthesizer (left of Override) with pencil icon -->
+  <rect x="240" y="360" width="260" height="140" class="smallbox"/>
+  <text x="370" y="390" text-anchor="middle" class="text title">Marker</text>
+  <text x="370" y="412" text-anchor="middle" class="text title">Synthesizer</text>
+  <!-- pencil icon -->
+  <g transform="translate(300,430) rotate(-20)">
+    <rect x="-2" y="-2" width="50" height="12" class="icon" fill="#fff"/>
+    <path d="M48 6 L58 0 L58 12 Z" class="icon" fill="#fff"/>
+    <rect x="-6" y="-6" width="10" height="10" class="icon" fill="#fff"/>
+  </g>
+  <path d="M500 420 L570 420" class="arrow"/>
+  <text x="520" y="405" class="text">Overrides</text>
+
+  <!-- Drift & Conflict Manager below Override -->
+  <rect x="570" y="460" width="260" height="140" class="smallbox"/>
+  <text x="700" y="490" text-anchor="middle" class="text title">Drift &amp;</text>
+  <text x="700" y="512" text-anchor="middle" class="text title">Conflict Manager</text>
+  <path d="M690 440 L690 460" class="arrow"/>
+  <text x="710" y="445" class="text">Overrides</text>
+
+  <!-- Executor to the right below Executing Plan -->
+  <rect x="920" y="320" width="260" height="170" class="box"/>
+  <text x="1050" y="360" text-anchor="middle" class="text title">Executor</text>
+  <!-- gear icon -->
+  <g transform="translate(1000,420)">
+    <!-- 8 teeth -->
+    <g class="icon">
+      <g transform="rotate(0)"><rect x="-6" y="-36" width="12" height="12"/></g>
+      <g transform="rotate(45)"><rect x="-6" y="-36" width="12" height="12"/></g>
+      <g transform="rotate(90)"><rect x="-6" y="-36" width="12" height="12"/></g>
+      <g transform="rotate(135)"><rect x="-6" y="-36" width="12" height="12"/></g>
+      <g transform="rotate(180)"><rect x="-6" y="-36" width="12" height="12"/></g>
+      <g transform="rotate(225)"><rect x="-6" y="-36" width="12" height="12"/></g>
+      <g transform="rotate(270)"><rect x="-6" y="-36" width="12" height="12"/></g>
+      <g transform="rotate(315)"><rect x="-6" y="-36" width="12" height="12"/></g>
+      <circle cx="0" cy="0" r="26" class="icon" fill="#fff"/>
+      <circle cx="0" cy="0" r="10" class="icon" fill="#fff"/>
+    </g>
+  </g>
+
+  <!-- Arrows: Override -> Drift -> Executor -->
+  <path d="M700 440 L700 460" class="arrow"/>
+  <path d="M830 520 L920 520 L920 390" class="arrow"/>
+  <text x="870" y="510" class="text">Overrides</text>
+
+  <!-- Executing Plan -> Executor (Execute) -->
+  <path d="M1050 260 L1050 320" class="arrow"/>
+  <text x="1076" y="295" class="text">Execute</text>
+
+</svg>
