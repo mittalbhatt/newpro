@@ -1,0 +1,35 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" 
+                  page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Node 1: ETE Request Intake -->
+        <mxCell id="2" value="ETE Request Intake" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="3" value="Input BEP from ETE Requestor asking 64 GB RAM (conflict with baseline 32 GB). This raw plan is passed into Signal Collector." 
+                style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="220" width="250" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Node 2: Slot Indexer -->
+        <mxCell id="4" value="Slot Indexer" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffe6cc;" vertex="1" parent="1">
+          <mxGeometry x="450" y="150" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="5" value="Acts as matcher and organizer. It decides whether the baseline plan or override could apply. Uses context-rich inputs to map requests." 
+                style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="220" width="300" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Edge between the two main nodes -->
+        <mxCell id="6" value="" style="endArrow=block;html=1;" edge="1" parent="1" source="2" target="4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
