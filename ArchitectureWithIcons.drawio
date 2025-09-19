@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ArchitectureWithIcons" id="diagram1">
+    <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ETE Request Intake -->
+        <mxCell id="req" value="ETE Request Intake" style="shape=rectangle;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="req_icon" value="📥" style="shape=label;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="60" y="110" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Signal Collectors -->
+        <mxCell id="signal" value="Signal Collectors" style="shape=rectangle;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="420" y="100" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="signal_icon" value="📡" style="shape=label;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="380" y="110" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Slot Indexer -->
+        <mxCell id="slot" value="Slot Indexer" style="shape=rectangle;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="740" y="100" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="slot_icon" value="🗂️" style="shape=label;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="700" y="110" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Executing Plan -->
+        <mxCell id="plan" value="Executing Plan" style="shape=rectangle;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="100" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="plan_icon" value="⚙️" style="shape=label;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="110" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Executor -->
+        <mxCell id="executor" value="Executor" style="shape=rectangle;fillColor=#b7e1cd;strokeColor=#4caf50;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="100" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="executor_icon" value="🚀" style="shape=label;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="110" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Marker Synthesizer -->
+        <mxCell id="marker" value="Marker Synthesizer" style="shape=rectangle;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="420" y="250" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="marker_icon" value="🧬" style="shape=label;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="380" y="260" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Override Module -->
+        <mxCell id="override" value="Override Module" style="shape=rectangle;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="740" y="250" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="override_icon" value="🔄" style="shape=label;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="700" y="260" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Drift & Conflict Manager -->
+        <mxCell id="drift" value="Drift &amp; Conflict Manager" style="shape=rectangle;fillColor=#cce5ff;strokeColor=#4a86e8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="250" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="drift_icon" value="⚖️" style="shape=label;fontSize=36;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="260" width="40" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Connectors -->
+        <mxCell id="e1" edge="1" source="req" target="signal" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" edge="1" source="signal" target="slot" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" edge="1" source="slot" target="plan" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" edge="1" source="plan" target="executor" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" edge="1" source="signal" target="marker" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" edge="1" source="marker" target="override" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" edge="1" source="override" target="drift" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" edge="1" source="drift" target="plan" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
