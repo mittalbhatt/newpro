@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Architecture" id="diagram1">
+    <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ETE Request Intake -->
+        <mxCell id="req" value="ETE Request Intake&#xa;Input BEP from ETE Requestor asking 64 GB RAM (conflict with baseline 32 GB). This raw plan is passed into Signal Collector." style="shape=parallelogram;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="20" y="60" width="260" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Signal Collectors -->
+        <mxCell id="signal" value="Signal Collectors&#xa;- Identity&#xa;- Approval&#xa;- Intent&#xa;- Conflict&#xa;Collect signals about the request before execution." style="shape=ellipse;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Slot Indexer -->
+        <mxCell id="slot" value="Slot Indexer&#xa;Acts as matcher and organizer. It decides whether the baseline plan or override could apply. Uses context-rich inputs to map requests." style="shape=hexagon;perimeter=hexagonPerimeter2;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="580" y="60" width="220" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Executing Plan -->
+        <mxCell id="plan" value="Executing Plan&#xa;Final plan submitted to Executor allocates machine with 64 GB RAM. Installs needed software. Applies role and other bind’s identity." style="shape=process;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="860" y="60" width="260" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Executor -->
+        <mxCell id="executor" value="Executor" style="shape=rectangle;fillColor=#b7e1cd;strokeColor=#4caf50;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="70" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Marker Synthesizer -->
+        <mxCell id="marker" value="Marker Synthesizer&#xa;Synthesizes signals &amp; slot metadata into actionable markers using A.I. Learns from telemetry &amp; history to refine overrides." style="shape=cloud;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="320" y="220" width="240" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Override Module -->
+        <mxCell id="override" value="Override Module&#xa;Applies approved overrides to baseline plan. Adjusts configuration intelligently (RAM, licenses, performance)." style="shape=card;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="620" y="220" width="260" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Drift & Conflict Manager -->
+        <mxCell id="drift" value="Drift &amp; Conflict Manager&#xa;Validates overrides in context of global policies. Prevents drift and resolves conflicts by applying priorities and corrective actions." style="shape=datastore;fillColor=#cce5ff;strokeColor=#4a86e8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="960" y="220" width="260" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Connectors -->
+        <mxCell id="e1" edge="1" source="req" target="signal" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" edge="1" source="signal" target="slot" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" edge="1" source="slot" target="plan" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" edge="1" source="plan" target="executor" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" edge="1" source="signal" target="marker" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" edge="1" source="marker" target="override" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" edge="1" source="override" target="drift" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" edge="1" source="drift" target="plan" style="endArrow=block;strokeColor=#000000;" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
