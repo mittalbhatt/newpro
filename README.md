@@ -1,8 +1,17 @@
 
-“Synthesizes signals & slot metadata into actionable markers using AI. Learns from telemetry & history to refine overrides"
+Example in Banking Context
 
+Problem: Need data to train AI fraud detection, but can’t use customer data.
+Solution:
 
-“Applies approved overrides to baseline plan. Adjusts configuration intelligently (RAM, licenses, performance).”
+Real data → scanned for PII.
 
+Risk mask applied.
 
-“Validates overrides in context of global policies. Prevents drift and resolves conflicts by applying priorities and corrective actions.”
+Synthetic data generated.
+
+Stored in Data Vault.
+
+Model trained on synthetic data.
+
+Audit proof → zero privacy breach.
