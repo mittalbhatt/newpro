@@ -15,7 +15,7 @@
           <mxGeometry x="300" y="20" width="700" height="30" as="geometry"/>
         </mxCell>
 
-        <!-- MAIN FLOW (TOP) -------------------------------------------------->
+        <!-- MAIN TRAINING FLOW (TOP ROW) -->
 
         <!-- Data Vault -->
         <mxCell id="v1" value="Data Vault"
@@ -45,7 +45,7 @@
           <mxGeometry x="620" y="115" width="260" height="80" as="geometry"/>
         </mxCell>
 
-        <!-- Edges main (top) -->
+        <!-- Edges main flow -->
         <mxCell id="e1" style="endArrow=classic;html=1;" edge="1" parent="1" source="v1" target="v2">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -56,9 +56,8 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
-        <!-- PGF CONTAINER ---------------------------------------------------->
+        <!-- PGF CONTAINER (DASHED BOX) -->
 
-        <!-- PGF dashed box -->
         <mxCell id="pgfbox" value="PGF – Privacy-Gradient Filter (inside training loop)"
                 style="rounded=1;dashed=1;whiteSpace=wrap;html=1;"
                 vertex="1" parent="1">
@@ -100,7 +99,7 @@
           <mxGeometry x="560" y="380" width="360" height="70" as="geometry"/>
         </mxCell>
 
-        <!-- Edges inside PGF -->
+        <!-- PGF internal arrows -->
         <mxCell id="e4" style="endArrow=classic;html=1;" edge="1" parent="1" source="loop" target="p1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -123,7 +122,7 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
-        <!-- SYNTHETIC OUTPUT ------------------------------------------------->
+        <!-- SYNTHETIC OUTPUT -->
 
         <!-- Synthetic Data Generator -->
         <mxCell id="gen" value="Synthetic Data Generator"
