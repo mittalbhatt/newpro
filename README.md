@@ -95,4 +95,59 @@
 
         <!-- Gradient Transformation Modules -->
         <mxCell id="p5" value="Gradient Transformation Modules&#xa;- Clipping&#xa;- Adaptive Noise&#xa;- Selective Suppression"
-                style="rounded=1;whiteSpace
+                style="rounded=1;whiteSpace=wrap;html=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="560" y="380" width="360" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges inside PGF -->
+        <mxCell id="e4" style="endArrow=classic;html=1;" edge="1" parent="1" source="loop" target="p1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" style="endArrow=classic;html=1;" edge="1" parent="1" source="p1" target="p2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="endArrow=classic;html=1;" edge="1" parent="1" source="p2" target="p3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="endArrow=classic;html=1;" edge="1" parent="1" source="p3" target="p4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" style="endArrow=classic;html=1;" edge="1" parent="1" source="p4" target="p5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Sanitized gradients back to training loop -->
+        <mxCell id="e9" value="sanitized gradients"
+                style="endArrow=classic;html=1;fontSize=10;" edge="1" parent="1" source="p5" target="loop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- SYNTHETIC OUTPUT ------------------------------------------------->
+
+        <!-- Synthetic Data Generator -->
+        <mxCell id="gen" value="Synthetic Data Generator"
+                style="rounded=1;whiteSpace=wrap;html=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="430" y="520" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Synthetic Data Vault -->
+        <mxCell id="vault2" value="Synthetic Data Vault"
+                style="shape=cylinder;whiteSpace=wrap;html=1;verticalLabelPosition=bottom;verticalAlign=top;"
+                vertex="1" parent="1">
+          <mxGeometry x="700" y="510" width="100" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges to generator & vault -->
+        <mxCell id="e10" style="endArrow=classic;html=1;" edge="1" parent="1" source="loop" target="gen">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e11" style="endArrow=classic;html=1;" edge="1" parent="1" source="gen" target="vault2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
