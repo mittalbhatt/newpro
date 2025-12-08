@@ -7,86 +7,88 @@
         <mxCell id="1" parent="0"/>
         
         <!-- PGF container -->
-        <mxCell id="pgfContainer" value="Privacy Gradient Filter (PGF)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7D6;strokeColor=#E0C973;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="pgfContainer" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7D6;strokeColor=#E0C973;fontSize=16;fontStyle=1;">
           <mxGeometry x="20" y="20" width="720" height="420" as="geometry"/>
-        </mxCell>
-
-        <!-- Title background (in container) -->
-        <mxCell id="pgfTitle" value="" style="rounded=0;strokeWidth=0;fillColor=none;" vertex="1" parent="pgfContainer">
-          <mxGeometry x="0" y="0" width="720" height="40" as="geometry"/>
+          <mxCell/>
+          <mxCell/>
         </mxCell>
 
         <!-- Stacked items inside PGF (icons using emoji) -->
         <!-- Gradient Collector -->
-        <mxCell id="item1" value="📥 Gradient Collector&#10;<div style=&quot;font-size:11px;&quot;>Gathers raw gradients for analysis</div>" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;" vertex="1" parent="pgfContainer">
+        <mxCell id="item1" vertex="1" parent="pgfContainer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;">
           <mxGeometry x="20" y="50" width="400" height="56" as="geometry"/>
+          <mxCell/>
+          <mxCell/>
+          <mxCell value="<![CDATA[📥 Gradient Collector<br/><div style='font-size:11px;'>Gathers raw gradients for analysis</div>]]>"/>
         </mxCell>
 
         <!-- Rarity & Outlier Analyzer -->
-        <mxCell id="item2" value="🔎 Rarity &amp; Outlier Analyzer&#10;<div style=&quot;font-size:11px;&quot;>Evaluates gradients against sensibility</div>" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;" vertex="1" parent="pgfContainer">
+        <mxCell id="item2" vertex="1" parent="pgfContainer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;">
           <mxGeometry x="20" y="116" width="400" height="56" as="geometry"/>
+          <mxCell value="<![CDATA[🔎 Rarity &amp; Outlier Analyzer<br/><div style='font-size:11px;'>Evaluates gradients against sensibility</div>]]>"/>
         </mxCell>
 
         <!-- Policy & Sensitivity Evaluator -->
-        <mxCell id="item3" value="⚖️ Policy &amp; Sensitivity Evaluator&#10;<div style=&quot;font-size:11px;&quot;>Scores gradients based on risk μ_s for sensitive information</div>" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;" vertex="1" parent="pgfContainer">
+        <mxCell id="item3" vertex="1" parent="pgfContainer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;">
           <mxGeometry x="20" y="182" width="400" height="70" as="geometry"/>
+          <mxCell value="<![CDATA[⚖️ Policy &amp; Sensitivity Evaluator<br/><div style='font-size:11px;'>Scores gradients based on risk μ_s for sensitive information</div>]]>"/>
         </mxCell>
 
         <!-- Gradient Risk Scorer -->
-        <mxCell id="item4" value="📊 Gradient Risk Scorer&#10;<div style=&quot;font-size:11px;&quot;>Scores gradients based on risk level for sensitive information</div>" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;" vertex="1" parent="pgfContainer">
+        <mxCell id="item4" vertex="1" parent="pgfContainer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;">
           <mxGeometry x="20" y="256" width="400" height="56" as="geometry"/>
+          <mxCell value="<![CDATA[📊 Gradient Risk Scorer<br/><div style='font-size:11px;'>Scores gradients based on risk level for sensitive information</div>]]>"/>
         </mxCell>
 
         <!-- Gradient Modifier -->
-        <mxCell id="item5" value="🛠️ Gradient Modifier&#10;<div style=&quot;font-size:11px;&quot;>Clipper • Noise Injector — Adjusts high-risk gradients to lower sensitivity</div>" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;" vertex="1" parent="pgfContainer">
+        <mxCell id="item5" vertex="1" parent="pgfContainer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CFCFCF;fontSize=12;">
           <mxGeometry x="20" y="322" width="400" height="70" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow to Optimizer -->
-        <mxCell id="edgeToOpt" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#9E9E9E;" edge="1" parent="pgfContainer" source="item5" target="optimizer">
-          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="<![CDATA[🛠️ Gradient Modifier<br/><div style='font-size:11px;'>Clipper • Noise Injector — Adjusts high-risk gradients to lower sensitivity</div>]]>"/>
         </mxCell>
 
         <!-- Optimizer box (outside PGF, to the right) -->
-        <mxCell id="optimizer" value="Optimizer&#10;<div style=&quot;font-size:11px;&quot;>Safe Gradients with Safe Gradients → Final Model Updates</div>" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FF;strokeColor=#9EC5FF;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="optimizer" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F4FF;strokeColor=#9EC5FF;fontSize=12;">
           <mxGeometry x="760" y="140" width="220" height="80" as="geometry"/>
-        </mxCell>
-
-        <!-- Dotted arrow from container to optimizer (from center right) -->
-        <mxCell id="edgeFromContainerToOpt" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=0;strokeColor=#7A7A7A;html=1;" edge="1" parent="1" source="pgfContainer" target="optimizer">
-          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="<![CDATA[Optimizer<br/><div style='font-size:11px;'>Safe Gradients with Safe Gradients → Final Model Updates</div>]]>"/>
         </mxCell>
 
         <!-- Gradients box below optimizer -->
-        <mxCell id="gradientsBox" value="Gradients*&#10;<div style=&quot;font-size:11px;&quot;>• Clipper&#10;• Noise Injector&#10;• Suppressor</div>" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2FFF0;strokeColor=#9CDFA3;fontSize=12;" vertex="1" parent="1">
+        <mxCell id="gradientsBox" vertex="1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2FFF0;strokeColor=#9CDFA3;fontSize=12;">
           <mxGeometry x="760" y="240" width="220" height="110" as="geometry"/>
+          <mxCell value="<![CDATA[Gradients*<br/><div style='font-size:11px;'>• Clipper<br/>• Noise Injector<br/>• Suppressor</div>]]>"/>
+        </mxCell>
+
+        <!-- Edges (connectors) -->
+        <mxCell id="edge1" edge="1" parent="pgfContainer" source="item1" target="item2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#BDBDBD;html=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge2" edge="1" parent="pgfContainer" source="item2" target="item3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#BDBDBD;html=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge3" edge="1" parent="pgfContainer" source="item3" target="item4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#BDBDBD;html=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="edge4" edge="1" parent="pgfContainer" source="item4" target="item5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#BDBDBD;html=1;">
+          <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
         <!-- Arrow from Gradient Modifier to Gradients box -->
-        <mxCell id="edgeModToGrad" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9E9E9E;html=1;" edge="1" parent="pgfContainer" source="item5" target="gradientsBox">
+        <mxCell id="edgeModToGrad" edge="1" parent="1" source="item5" target="gradientsBox" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#9E9E9E;html=1;">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
-        <!-- Small annotation under container -->
-        <mxCell id="annotation" value="Adjusts high-risk gradients to lower sensitivity" style="whiteSpace=wrap;html=1;fontSize=11;fontColor=#5F5F5F;" vertex="1" parent="pgfContainer">
+        <!-- Arrow from PGF to Optimizer -->
+        <mxCell id="edgeFromContainerToOpt" edge="1" parent="1" source="pgfContainer" target="optimizer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#7A7A7A;html=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Annotation inside container -->
+        <mxCell id="annotation" vertex="1" parent="pgfContainer" style="whiteSpace=wrap;html=1;fontSize=11;fontColor=#5F5F5F;">
           <mxGeometry x="20" y="402" width="400" height="14" as="geometry"/>
-        </mxCell>
-
-        <!-- Decorative connector from collector to analyzer (inside) -->
-        <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#BDBDBD;html=1;" edge="1" parent="pgfContainer" source="item1" target="item2">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#BDBDBD;html=1;" edge="1" parent="pgfContainer" source="item2" target="item3">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#BDBDBD;html=1;" edge="1" parent="pgfContainer" source="item3" target="item4">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#BDBDBD;html=1;" edge="1" parent="pgfContainer" source="item4" target="item5">
-          <mxGeometry relative="1" as="geometry"/>
+          <mxCell value="<![CDATA[Adjusts high-risk gradients to lower sensitivity]]>"/>
         </mxCell>
 
       </root>
