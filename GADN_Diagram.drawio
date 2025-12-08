@@ -1,0 +1,48 @@
+<mxfile host="draw.io">
+  <diagram id="GADNFlow" name="Page-1">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Batch of Masked Transactions -->
+        <mxCell id="2" value="Batch of Masked Transactions" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1">
+          <mxGeometry x="40" y="40" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- GAD Models Box -->
+        <mxCell id="3" value="GAD Models" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#dce6f9;strokeColor=#000000;" vertex="1">
+          <mxGeometry x="40" y="130" width="200" height="160" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="4" value="G Models" style="shape=rectangle;rounded=1;fillColor=#b3c7f9;strokeColor=#000000;" vertex="1">
+          <mxGeometry x="60" y="150" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="5" value="A Models" style="shape=rectangle;rounded=1;fillColor=#8ab1f0;strokeColor=#000000;" vertex="1">
+          <mxGeometry x="60" y="200" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="6" value="D Models" style="shape=rectangle;rounded=1;fillColor=#6b93b8;strokeColor=#000000;" vertex="1">
+          <mxGeometry x="60" y="250" width="160" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Raw Gradients Arrow -->
+        <mxCell id="7" edge="1" style="endArrow=block;strokeColor=#cc0033;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8" value="Raw Gradients" style="shape=rectangle;rounded=1;fillColor=#ff6677;strokeColor=#cc0033;fontColor=#ffffff;" vertex="1">
+          <mxGeometry x="240" y="180" width="140" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- PGF Block -->
+        <mxCell id="9" value="Privacy Gradient Filter (PGF)" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#fff4cc;strokeColor=#000000;" vertex="1">
+          <mxGeometry x="400" y="80" width="260" height="260" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
