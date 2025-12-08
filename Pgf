@@ -1,88 +1,57 @@
-<mxfile host="app.diagrams.net">
-  <diagram id="diagram1" name="Page-1">
-    <mxGraphModel dx="1420" dy="880" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000">
+from pathlib import Path
+
+# Create a simple draw.io XML template (user can refine in editor)
+xml = """<mxfile host="app.diagrams.net">
+  <diagram id="pgf" name="Page-1">
+    <mxGraphModel>
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 
         <!-- Batch of Masked Transactions -->
-        <mxCell id="batchNode" value="Batch of Masked&#10;Transactions" style="rounded=1;whiteSpace=wrap;strokeColor=#6666FF;fillColor=#EEF2FF;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="40" y="120" width="180" height="80" as="geometry"/>
+        <mxCell id="2" value="Batch of Masked Transactions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="200" height="60" as="geometry"/>
         </mxCell>
 
-        <!-- Arrow Batch -> GAD -->
-        <mxCell id="arrow1" edge="1" source="batchNode" target="gadNode" style="endArrow=classic;strokeColor=#000000;" parent="1">
-          <mxGeometry relative="1" as="geometry"/>
+        <!-- GAD Models -->
+        <mxCell id="3" value="GAD Models&#10;G Models&#10;A Models&#10;D Models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="20" y="120" width="200" height="160" as="geometry"/>
         </mxCell>
 
-        <!-- GAD Models Box -->
-        <mxCell id="gadNode" value="GAD Models" style="rounded=1;whiteSpace=wrap;strokeColor=#0066CC;fillColor=#E8F4FF;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="260" y="100" width="200" height="160" as="geometry"/>
+        <!-- Raw Gradients -->
+        <mxCell id="4" value="Raw Gradients" style="shape=process;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="260" y="150" width="140" height="50" as="geometry"/>
         </mxCell>
 
-        <!-- G / A / D Models inside -->
-        <mxCell id="gModels" value="G Models" style="rounded=1;whiteSpace=wrap;strokeColor=#2244AA;fillColor=#DCE6FF;" vertex="1" parent="1">
-          <mxGeometry x="275" y="115" width="170" height="40" as="geometry"/>
-        </mxCell>
-        <mxCell id="aModels" value="A Models" style="rounded=1;whiteSpace=wrap;strokeColor=#2244AA;fillColor=#C8D9FF;" vertex="1" parent="1">
-          <mxGeometry x="275" y="160" width="170" height="40" as="geometry"/>
-        </mxCell>
-        <mxCell id="dModels" value="D Models" style="rounded=1;whiteSpace=wrap;strokeColor=#2244AA;fillColor=#B5CDFF;" vertex="1" parent="1">
-          <mxGeometry x="275" y="205" width="170" height="40" as="geometry"/>
-        </mxCell>
-
-        <!-- Raw Gradients arrow -->
-        <mxCell id="arrow2" edge="1" source="gadNode" target="pgfNode" value="Raw Gradients" style="endArrow=classic;strokeColor=#CC0000;fontColor=#CC0000;" parent="1">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
-
-        <!-- Privacy Gradient Filter Box -->
-        <mxCell id="pgfNode" value="Privacy Gradient Filter (PGF)" style="rounded=1;whiteSpace=wrap;strokeColor=#FFBB00;fillColor=#FFF7DD;fontSize=18;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="520" y="80" width="300" height="280" as="geometry"/>
-        </mxCell>
-
-        <!-- PGF inner sections -->
-        <mxCell id="gc" value="• Gradient Collector" vertex="1" style="whiteSpace=wrap;strokeColor=#FFD966;fillColor=#FFF3C4;" parent="1">
-          <mxGeometry x="540" y="110" width="260" height="40" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="rarity" value="• Rarity & Outlier Analyzer" vertex="1" style="whiteSpace=wrap;strokeColor=#FFD966;fillColor=#FFF3C4;" parent="1">
-          <mxGeometry x="540" y="155" width="260" height="40" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="policy" value="• Policy & Sensitivity Evaluator" vertex="1" style="whiteSpace=wrap;strokeColor=#FFD966;fillColor=#FFF3C4;" parent="1">
-          <mxGeometry x="540" y="200" width="260" height="40" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="risk" value="• Gradient Risk Scorer" vertex="1" style="whiteSpace=wrap;strokeColor=#FFD966;fillColor=#FFF3C4;" parent="1">
-          <mxGeometry x="540" y="245" width="260" height="40" as="geometry"/>
-        </mxCell>
-
-        <mxCell id="modifier" value="• Gradient Modifier (Clipping / Noise)" vertex="1" style="whiteSpace=wrap;strokeColor=#FFD966;fillColor=#FFF3C4;" parent="1">
-          <mxGeometry x="540" y="290" width="260" height="40" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow PGF -> Optimizer -->
-        <mxCell id="arrow3" edge="1" source="pgfNode" target="optNode" value="Safe Gradients" style="endArrow=classic;strokeColor=#006600;fontColor=#006600;" parent="1">
-          <mxGeometry relative="1" as="geometry"/>
+        <!-- PGF Block -->
+        <mxCell id="5" value="Privacy Gradient Filter (PGF)&#10;- Gradient Collector&#10;- Rarity & Outlier Analyzer&#10;- Policy & Sensitivity Evaluator&#10;- Gradient Risk Scorer&#10;- Gradient Modifier" 
+           style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="420" y="60" width="260" height="260" as="geometry"/>
         </mxCell>
 
         <!-- Optimizer -->
-        <mxCell id="optNode" value="Optimizer" style="rounded=1;whiteSpace=wrap;strokeColor=#009900;fillColor=#E5FFE5;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="880" y="150" width="180" height="80" as="geometry"/>
-        </mxCell>
-
-        <!-- Arrow Optimizer -> Final Model -->
-        <mxCell id="arrow4" edge="1" source="optNode" target="finalNode" value="Final Model Updates" style="endArrow=classic;strokeColor=#0000AA;fontColor=#0000AA;" parent="1">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="6" value="Optimizer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="720" y="140" width="160" height="80" as="geometry"/>
         </mxCell>
 
         <!-- Final Model Updates -->
-        <mxCell id="finalNode" value="Final Model Updates" style="rounded=1;whiteSpace=wrap;strokeColor=#4444FF;fillColor=#EAEAFF;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="1120" y="150" width="200" height="80" as="geometry"/>
+        <mxCell id="7" value="Final Model Updates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="920" y="150" width="180" height="70" as="geometry"/>
         </mxCell>
+
+        <!-- Connectors -->
+        <mxCell id="8" edge="1" parent="1" source="3" target="4" style="endArrow=classic;strokeWidth=2;"/>
+        <mxCell id="9" edge="1" parent="1" source="4" target="5" style="endArrow=classic;strokeWidth=2;"/>
+        <mxCell id="10" edge="1" parent="1" source="5" target="6" style="endArrow=classic;strokeWidth=2;"/>
+        <mxCell id="11" edge="1" parent="1" source="6" target="7" style="endArrow=classic;strokeWidth=2;"/>
 
       </root>
     </mxGraphModel>
   </diagram>
 </mxfile>
+"""
+
+path = Path("/mnt/data/pgf_diagram.drawio")
+path.write_text(xml, encoding="utf-8")
+
+path
