@@ -1,7 +1,8 @@
-Thank you so much for your kind wishes and thoughtful message on my 5th Service Anniversary. It truly means a lot to me.
+Thank you so much for your kind wishes and encouraging words. I truly appreciate the support and guidance from you and the leadership team.
 
-I am grateful for your constant support, timely guidance, and motivation throughout my journey. Your encouragement and trust have always inspired me to learn, improve, and give my best every day.
+I would also like to thank the senior leadership for listening to our concerns, addressing them thoughtfully, and providing continued support. It really motivates us to perform better and stay committed.
 
-I feel fortunate to be part of such a supportive team and leadership. Looking forward to continuing this journey, contributing more, and growing further under your guidance.
+Thanks again for the warm wishes.
 
-Thank you once again for making this milestone special.
+Best regards,
+Mittal
